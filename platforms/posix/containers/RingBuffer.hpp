@@ -22,6 +22,11 @@ public:
     }
     ~RingBuf() {}
 
+    T front() const
+    {
+        return _buf[_first];
+    }
+
     bool pop(T &a)
     {
         if (isEmpty())

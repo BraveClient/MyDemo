@@ -11,27 +11,27 @@
 #include <thread>
 #pragma once
 
-class module
+class ModuleBase
 {
 public:
-    bool _runSta = false;
+    bool _running = false;
     std::thread _thread;
-    module() {}
-    ~module() {}
+    ModuleBase() {}
+    virtual ~ModuleBase() {}
     void start()
     {
-        _runSta = true;
-        _thread = std::thread(&module::run, this);
+        _running = true;
+        _thread = std::thread(&ModuleBase::run, this);
     }
     void stop()
     {
         //FIXME when wait in mutex ,can not stop
-        if (true == _runSta)
+        if (true == _running)
         {
-            _runSta = false;
+            _running = false;
         }
         _thread.join();
     }
-    bool isRun() { return _runSta; }
-    virtual void run() { _runSta = false; };
+    inline bool isRun() { return _running; }
+    virtual void run() { _running = false; };
 };

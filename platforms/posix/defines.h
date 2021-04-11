@@ -14,15 +14,3 @@
 #define SUCCESS (0)
 #define FAILURE (-1)
 
-#include <string>
-#include "common.h"
-
-
-typedef struct
-{
-	std::string srcIP;
-	uint16_t srcPort;
-	std::string desIP;
-	uint16_t desPort;
-	std::string data;
-} ST_UDP_DATA;

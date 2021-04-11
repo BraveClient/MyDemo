@@ -66,6 +66,9 @@
         "charconv": "cpp",
         "future": "cpp",
         "complex": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "set": "cpp",
+        "typeindex": "cpp",
+        "ciso646": "cpp"
     }
 }

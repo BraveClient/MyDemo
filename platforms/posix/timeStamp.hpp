@@ -11,6 +11,7 @@
 #pragma once
 #include <ctime>
 #include <unistd.h>
+#include <stdint.h>
 
 class TimeStamp
 {

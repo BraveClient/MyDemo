@@ -23,7 +23,9 @@
                 }
             ],
             "preLaunchTask": "C/C++: g++ build active file",
-            "miDebuggerPath": "/usr/bin/gdb"
+            "miDebuggerPath": "/usr/bin/gdb",
+            // "sourceFileMap":{
+            //     "/usr/src/glibc"}
         }
     ]
 }

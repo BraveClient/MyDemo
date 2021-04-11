@@ -14,7 +14,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <assert.h>
+#include <stddef.h>
 #include "defines.h"
+#include "visibility.h"
 
 // used to pack structures
 #define PACKED __attribute__((__packed__))
