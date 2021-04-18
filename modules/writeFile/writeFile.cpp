@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2020
  * 
  */
-#include "wirteFile.hpp"
+#include "writeFile.hpp"
 using namespace std;
 
 writeFile::writeFile(AbstructThreadsafeMethod<ST_UDP_DATA> *pDataQueue) : _pDataQueue(pDataQueue),

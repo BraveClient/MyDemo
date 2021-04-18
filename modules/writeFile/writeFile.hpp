@@ -25,20 +25,6 @@ const uint32_t MAX_COUNT = 10000;
 const uint64_t MAX_SIZE = 5 * SIZE_1G;
 
 
-#pragma pack(1)
-typedef struct
-{
-	unsigned char channel1; //通道标识1
-	unsigned char channel2; //通道标识2
-	unsigned short frame_len; //本帧字节数
-	unsigned char src_id; //源标识符
-	unsigned char dest_id; //目的标识符
-	unsigned int date; //日期
-	unsigned int absolute_time; //绝对时间
-	unsigned int relative_time; //相对时间
-	unsigned char attach_yu_num; //本帧包含域个数
-}Net_Frame_Info_Header;
-#pragma pack()
 
 class writeFile : public module, private cyclic_storage
 {
