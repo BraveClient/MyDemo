@@ -1,5 +1,5 @@
 /**
- * @file wirteFile.cpp
+ * @file writeFile.cpp
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1
@@ -11,16 +11,16 @@
 #include "wirteFile.hpp"
 using namespace std;
 
-wirteFile::wirteFile(AbstructThreadsafeMethod<ST_UDP_DATA> *pDataQueue) : _pDataQueue(pDataQueue),
+writeFile::writeFile(AbstructThreadsafeMethod<ST_UDP_DATA> *pDataQueue) : _pDataQueue(pDataQueue),
                                                                           cyclic_storage(SAVE_PATH_1, SIZE_1M * 100)
 {
 }
 
-wirteFile::~wirteFile()
+writeFile::~writeFile()
 {
 }
 
-void wirteFile::run()
+void writeFile::run()
 {
     std::string infoSysDataPath;
     std::string firstPack;
@@ -37,7 +37,7 @@ void wirteFile::run()
 
     infoSysDataPath += string("/INFO_SYS.dat");
     _infoSysDataFile.open(infoSysDataPath, ios::binary | ios::out | ios::trunc);
-
+ 
     if (!_infoSysDataFile.is_open())
     {
         goto EXIT1_OPEN_FILE_FAILURE;
@@ -82,7 +82,7 @@ EXIT0_NO_SAVEPATH:
     return;
 }
 
-int wirteFile::packDataToFile(ST_UDP_DATA &data)
+int writeFile::packDataToFile(ST_UDP_DATA &data)
 {
     string destData;
     // DataStoragePack::packData(destData, data.data);
@@ -90,7 +90,7 @@ int wirteFile::packDataToFile(ST_UDP_DATA &data)
     return writeStringToFile(destData);
 }
 
-bool wirteFile::packData(std::string &dest, const std::string &src)
+bool writeFile::packData(std::string &dest, const std::string &src)
 {
     Net_Frame_Info_Header header;
     int data;
@@ -132,7 +132,7 @@ bool wirteFile::packData(std::string &dest, const std::string &src)
     return true;
 }
 
-int wirteFile::writeStringToFile(std::string &data)
+int writeFile::writeStringToFile(std::string &data)
 {
     int ret = FAILURE;
 

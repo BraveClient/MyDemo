@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 // #include "include/json.hpp"
 
 // #include "modules/udpReceiver/udpReceiver.hpp"
-// #include "modules/wirteFile/wirteFile.hpp"
+// #include "modules/writeFile/writeFile.hpp"
 // #include "modules/logger/logger.hpp"
 
 

@@ -1,5 +1,5 @@
 /**
- * @file wirteFile.hpp
+ * @file writeFile.hpp
  * @author yh(forgetsky001@qq.com)
  * @brief 写数据到硬盘
  * @version 0.1
@@ -40,7 +40,7 @@ typedef struct
 }Net_Frame_Info_Header;
 #pragma pack()
 
-class wirteFile : public module, private cyclic_storage
+class writeFile : public module, private cyclic_storage
 {
 private:
 	AbstructThreadsafeMethod<ST_UDP_DATA> *_pDataQueue{nullptr};
@@ -53,6 +53,6 @@ private:
 	void run() override;
 
 public:
-	wirteFile(AbstructThreadsafeMethod<ST_UDP_DATA> *pDataQueue);
-	~wirteFile();
+	writeFile(AbstructThreadsafeMethod<ST_UDP_DATA> *pDataQueue);
+	~writeFile();
 };
