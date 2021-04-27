@@ -10,9 +10,9 @@
  */
 #pragma once
 
+#include "../rwlock_writeFirst.hpp"
 #include <pthread.h>
 #include <time.h>
-#include "../rwlock_writeFirst.hpp"
 
 template <typename T>
 class rwLockDataBase
@@ -34,9 +34,8 @@ public:
     }
     int tryWriteData(const T &in, const int waitMilliseconds = 0)
     {
-        if(-1 == _lk.tryLockWrite(waitMilliseconds))
+        if (-1 == _lk.tryLockWrite(waitMilliseconds))
         {
-            
         }
     }
     int readData(T &out) {}

@@ -10,13 +10,13 @@
  */
 #pragma once
 
+#include "defines.h"
+#include "visibility.h"
+#include <assert.h>
+#include <stddef.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <assert.h>
-#include <stddef.h>
-#include "defines.h"
-#include "visibility.h"
 
 // used to pack structures
 #define PACKED __attribute__((__packed__))
@@ -28,7 +28,7 @@
 #define UNUSED_FUNCTION __attribute__((unused))
 
 #ifdef __GNUC__
- #define WARN_IF_UNUSED __attribute__ ((warn_unused_result))
+#define WARN_IF_UNUSED __attribute__((warn_unused_result))
 #else
- #define WARN_IF_UNUSED
+#define WARN_IF_UNUSED
 #endif

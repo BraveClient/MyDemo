@@ -10,17 +10,17 @@
  */
 
 #pragma once
-#include <mutex>
-#include <condition_variable>
-#include <unistd.h>
-#include "RingBuffer.hpp"
 #include "LockArraryInterface.hpp"
+#include "RingBuffer.hpp"
+#include <condition_variable>
+#include <mutex>
+#include <unistd.h>
 
 template <typename T, int N>
 class ThreadsafeRingbuffer : public LockArraryInterface<T, N>
 {
 private:
-    RingBuf<T, N> _data_queue;
+    RingBuffer<T, N> _data_queue;
 
 public:
     ThreadsafeRingbuffer()
@@ -40,11 +40,11 @@ public:
 
     bool isFull() override
     {
-        return _data_queue.isFull();
+        return _data_queue.full();
     }
     bool isEmpty() override
     {
-        return _data_queue.isEmpty();
+        return _data_queue.empty();
     }
     void clear() override
     {
@@ -82,17 +82,17 @@ public:
     {
         bool ret = false;
         std::unique_lock<std::mutex> locker(this->_mutex);
-        this->_condition.wait(locker, [this] { return !_data_queue.isEmpty(); });
+        this->_condition.wait(locker, [this] { return !_data_queue.empty(); });
         ret = _data_queue.pop(value);
         return ret;
     }
     std::shared_ptr<T> waitPop() override
     {
         std::unique_lock<std::mutex> locker(this->_mutex);
-        this->_condition.wait(locker, [this] { return !_data_queue.isEmpty(); });
+        this->_condition.wait(locker, [this] { return !_data_queue.empty(); });
         T temp;
         std::shared_ptr<T> res(std::make_shared<T>(_data_queue.front()));
-        _data_queue.pop(temp);
+        _data_queue.pop();
         return res;
     }
     bool tryPop(T &value) override

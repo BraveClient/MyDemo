@@ -9,25 +9,29 @@
  * 
  */
 // #include <string>
-#include <iostream>
-#include "platforms/posix/containers/RingBuffer.hpp"
+#include "platforms/posix/BuildDateTime.h"
 #include "platforms/posix/containers/LockArraryInterface.hpp"
 #include "platforms/posix/containers/LockQueue.hpp"
 #include "platforms/posix/containers/LockRingBuffer.hpp"
-
+#include "platforms/posix/containers/RingBuffer.hpp"
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
-
-    std::cout<<"hello world"<<std::endl;
+    BuildDateTime dataTime;
+    std::cout << dataTime.year << std::endl;
+    std::cout << dataTime.month << std::endl;
+    std::cout << dataTime.day << std::endl;
+    std::cout << dataTime.hour << std::endl;
+    std::cout << dataTime.min << std::endl;
+    std::cout << dataTime.second << std::endl;
+    std::cout << "hello world" << std::endl;
     return 0;
 }
-
 
 // #include "platforms/posix/containers/LockQueue.hpp"
 // #include "platforms/posix/containers/LockRingBuffer.hpp"
 // #include <stdio.h>
-
 
 // #include "include/defines.h"
 // #include "include/module.h"
@@ -38,9 +42,7 @@ int main(int argc, char *argv[])
 // #include "modules/writeFile/writeFile.hpp"
 // #include "modules/logger/logger.hpp"
 
-
 // #include "libs/globalData/globalData.hpp"
-
 
 // #include <iostream>
 // #include <stdio.h>
@@ -57,7 +59,7 @@ int main(int argc, char *argv[])
 
 // /**
 //  * @brief 读取主节点JSON信息
-//  * 
+//  *
 //  * @return true 成功
 //  * @return false 失败
 //  */
@@ -87,8 +89,8 @@ int main(int argc, char *argv[])
 
 // /**
 //  * @brief 初始化wiringPi
-//  * 
-//  * @return true 成功 
+//  *
+//  * @return true 成功
 //  * @return false 失败
 //  */
 // int initWiringPi()
@@ -99,10 +101,10 @@ int main(int argc, char *argv[])
 // }
 
 // /**
-//  * @brief 
-//  * 
-//  * @return true 
-//  * @return false 
+//  * @brief
+//  *
+//  * @return true
+//  * @return false
 //  */
 // bool FW_init()
 // {
@@ -133,7 +135,6 @@ int main(int argc, char *argv[])
 //         log_error("initWiringPi error");
 //         return false;
 //     }
-
 
 //     //初始化UDP
 //     string thisNodeIpAddr;
@@ -172,10 +173,3 @@ int main(int argc, char *argv[])
 //         sleep(1);
 //     }
 // }
-
-
-
-
-
-
-

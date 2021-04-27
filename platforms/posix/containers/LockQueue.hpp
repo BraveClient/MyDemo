@@ -9,11 +9,11 @@
  * 
  */
 #pragma once
-#include <mutex>
-#include <condition_variable>
-#include <unistd.h>
-#include <queue>
 #include "LockArraryInterface.hpp"
+#include <condition_variable>
+#include <mutex>
+#include <queue>
+#include <unistd.h>
 
 template <typename T, int N>
 class LockQueue : public LockArraryInterface<T, N>

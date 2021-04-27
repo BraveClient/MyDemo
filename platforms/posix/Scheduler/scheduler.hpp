@@ -14,17 +14,10 @@
 #include <list>
 #include <semaphore.h>
 
-#define ADD_TASK_IN_SCHEDULER(name, frequency, sem) {\
-    Scheduler* p = Scheduler::getInstance();\
-    p.addTask(##name,frequency, sem) \
-}
-
-#define AP_HAL_MAIN_CALLBACKS(CALLBACKS) extern "C" { \
-    int AP_MAIN(int argc, char* const argv[]); \
-    int AP_MAIN(int argc, char* const argv[]) { \
-        hal.run(argc, argv, CALLBACKS); \
-        return 0; \
-    } \
+#define ADD_TASK_IN_SCHEDULER(name, frequency, sem) \
+    {                                               \
+        Scheduler *p = Scheduler::getInstance();    \
+        p.addTask(##name, frequency, sem)           \
     }
 
 class Scheduler : public ModuleBase
@@ -46,9 +39,8 @@ private:
 
 public:
     static Scheduler *getInstance() { return _pInstance; }
-    
+
     void run() override;
 
-    int addTask(std::string name ,float frequency,sem_t sem);
+    int addTask(std::string name, float frequency, sem_t sem);
 };
- 

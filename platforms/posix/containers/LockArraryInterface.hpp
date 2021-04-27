@@ -9,10 +9,9 @@
  * 
  */
 #pragma once
+#include <condition_variable>
 #include <memory>
 #include <mutex>
-#include <condition_variable>
-
 
 template <typename T, int N>
 class LockArraryInterface

@@ -12,9 +12,9 @@
 #define _TIMESTAMP_H_
 
 #include <ctime>
-#include <unistd.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <unistd.h>
 
 class TimeStamp
 {
